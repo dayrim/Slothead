@@ -1,0 +1,127 @@
+<section id="slothead">
+  <mat-toolbar layout-align="center center" color="warm">
+    <h1>Slothead</h1>
+  </mat-toolbar>
+  <div class="slotreel">
+    <div class="swiper-container hours">
+      <swiper [config]="config" id="1" (indexChange)="onIndexChangeReel1($event)" (swiperTransitionEnd)="onTransEnd($event)">
+        <div class="swiper-slide"><img src="./assets/3xBAR.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/BAR.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/2xBAR.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/7.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/Cherry.png"></div>
+        <div class="swiper-slide"></div>
+
+      </swiper>
+    </div>
+    <div class="swiper-container minutes">
+      <swiper [config]="config" id="2" (indexChange)="onIndexChangeReel2($event)" (swiperTransitionEnd)="onTransEnd($event)">
+        <div class="swiper-slide"><img src="./assets/3xBAR.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/BAR.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/2xBAR.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/7.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/Cherry.png"></div>
+        <div class="swiper-slide"></div>
+      </swiper>
+    </div>
+    <div class="swiper-container seconds">
+      <swiper [config]="config" id="3" (indexChange)="onIndexChangeReel3($event)" (swiperTransitionEnd)="onTransEnd($event)">
+        <div class="swiper-slide"><img src="./assets/3xBAR.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/BAR.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/2xBAR.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/7.png"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="./assets/Cherry.png"></div>
+        <div class="swiper-slide"></div>
+      </swiper>
+    </div>
+    <div [style.background-color]="backgroundOfTopLine" class="top-vizor"></div>
+    <div [style.background-color]="backgroundOfCentralLine" class="center-vizor"></div>
+    <div [style.background-color]="backgroundOfBotLine" class="bot-vizor"></div>
+  </div>
+
+  <mat-form-field class="chartInput">
+    <input [formControl]="scoreFormConrol" [errorStateMatcher]="matcher" type="number" class="scoreInputField" matInput
+      placeholder="Player Score" [value]="playerScore" (input)="setScore($event.target.value)" (keyup.enter)="setScore($event.target.value)">
+    <mat-hint *ngIf="!scoreFormConrol.disabled">Drag any reel to set new value</mat-hint>
+    <mat-error *ngIf="scoreFormConrol.hasError('min')">
+      Please enter score greater then {{minScore}}
+    </mat-error>
+    <mat-error *ngIf="scoreFormConrol.hasError('max')">
+      Please enter score lower then {{maxScore}}
+    </mat-error>
+    <mat-error *ngIf="scoreFormConrol.hasError('required')">
+      Please enter score
+    </mat-error>
+  </mat-form-field>
+
+  <mat-slide-toggle [checked]='false' (change)='toggleGodMode()'>Enable godmode</mat-slide-toggle>
+
+  <button [disabled]="rollButtonDisabled" class="rollButton" mat-raised-button color="primary" (click)="rollRandom()">Spinl</button>
+  <mat-divider></mat-divider>
+  <div class="grid-container">
+
+    <div [style.background-color]="backgroundOfCombo1" class="combo1"><img src="./assets/BAR.png"></div>
+    <div [style.background-color]="backgroundOfCombo2" class="combo2"><img src="./assets/BAR.png"></div>
+    <div [style.background-color]="backgroundOfCombo3" class="combo3">
+      <img src="./assets/2xBAR.png"></div>
+    <div style="background-image: url('src/assets/7.png');" [style.background-color]="backgroundOfCombo4" class="combo4"><img
+        src="./assets/BAR.png"></div>
+    <div [style.background-color]="backgroundOfCombo5" class="combo5"><img src="./assets/Cherry.png"></div>
+    <div [style.background-color]="backgroundOfCombo6" class="combo6"><img src="./assets/7.png"></div>
+    <div [style.background-color]="backgroundOfCombo7" class="combo7"><img src="./assets/Cherry.png"></div>
+    <div [style.background-color]="backgroundOfCombo8" class="combo8"><img src="./assets/Cherry.png"></div>
+    <div [style.background-color]="backgroundOfCombo9" class="combo9"><img src="./assets/Cherry.png"></div>
+
+    <div [style.background-color]="backgroundOfCombo1" class="combo1"><img src="./assets/BAR.png"></div>
+    <div [style.background-color]="backgroundOfCombo2" class="combo2"><img src="./assets/BAR.png"></div>
+    <div [style.background-color]="backgroundOfCombo3" class="combo3"><img src="./assets/2xBAR.png"></div>
+    <div [style.background-color]="backgroundOfCombo4" class="combo4"><img src="./assets/BAR.png"></div>
+    <div [style.background-color]="backgroundOfCombo5" class="combo5"><img src="./assets/7.png"></div>
+    <div [style.background-color]="backgroundOfCombo6" class="combo6"><img src="./assets/7.png"></div>
+    <div [style.background-color]="backgroundOfCombo7" class="combo7"><img src="./assets/Cherry.png"></div>
+    <div [style.background-color]="backgroundOfCombo8" class="combo8"><img src="./assets/Cherry.png"></div>
+    <div [style.background-color]="backgroundOfCombo9" class="combo9"><img src="./assets/Cherry.png"></div>
+
+    <div [style.background-color]="backgroundOfCombo1" class="combo1"></div>
+    <div [style.background-color]="backgroundOfCombo2" class="combo2"><img src="./assets/BAR.png"></div>
+    <div [style.background-color]="backgroundOfCombo3" class="combo3"><img src="./assets/2xBAR.png"></div>
+    <div [style.background-color]="backgroundOfCombo4" class="combo4"><img src="./assets/BAR.png"></div>
+    <div [style.background-color]="backgroundOfCombo5" class="combo5"></div>
+    <div [style.background-color]="backgroundOfCombo6" class="combo6"><img src="./assets/7.png"></div>
+    <div [style.background-color]="backgroundOfCombo7" class="combo7"><img src="./assets/Cherry.png"></div>
+    <div [style.background-color]="backgroundOfCombo8" class="combo8"><img src="./assets/Cherry.png"></div>
+    <div [style.background-color]="backgroundOfCombo9" class="combo9"><img src="./assets/Cherry.png"></div>
+
+    <div [style.background-color]="backgroundOfCombo1" class="combo1">Any line</div>
+    <div [style.background-color]="backgroundOfCombo2" class="combo2">Any line</div>
+    <div [style.background-color]="backgroundOfCombo3" class="combo3">Any line</div>
+    <div [style.background-color]="backgroundOfCombo4" class="combo4">Any line</div>
+    <div [style.background-color]="backgroundOfCombo5" class="combo5">Any line</div>
+    <div [style.background-color]="backgroundOfCombo6" class="combo6">Any line</div>
+    <div [style.background-color]="backgroundOfCombo7" class="combo7">Central line</div>
+    <div [style.background-color]="backgroundOfCombo8" class="combo8">Top line</div>
+    <div [style.background-color]="backgroundOfCombo9" class="combo9">Bottom line</div>
+
+    <div [style.background-color]="backgroundOfCombo1" class="combo1">5</div>
+    <div [style.background-color]="backgroundOfCombo2" class="combo2">10</div>
+    <div [style.background-color]="backgroundOfCombo3" class="combo3">20</div>
+    <div [style.background-color]="backgroundOfCombo4" class="combo4">50</div>
+    <div [style.background-color]="backgroundOfCombo5" class="combo5">75</div>
+    <div [style.background-color]="backgroundOfCombo6" class="combo6">150</div>
+    <div [style.background-color]="backgroundOfCombo7" class="combo7">1000</div>
+    <div [style.background-color]="backgroundOfCombo8" class="combo8">2000</div>
+    <div [style.background-color]="backgroundOfCombo9" class="combo9">4000</div>
+  </div>
+</section>

@@ -1,19 +1,19 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { WeatherAppComponent } from './app-root';
-import { PageNotFoundComponent } from './weather/components/not-found-component';
+import { SlotheadAppComponent } from './app-root';
+import { PageNotFoundComponent } from './slothead/components/not-found-component';
 
 export const appRoutes: Routes = [
-  { path: '', redirectTo: 'weather', pathMatch: 'full' },
+  { path: '', redirectTo: 'slothead', pathMatch: 'full' },
   {
     path: '',
-    component: WeatherAppComponent,
+    component: SlotheadAppComponent,
     children: [
       {
-        path: 'weather',
-        loadChildren: './weather/weather.module#WeatherModule'
+        path: 'slothead',
+        loadChildren: './slothead/slothead.module#SlotheadModule'
       },
-      { path: '', redirectTo: 'weather', pathMatch: 'full' }
+      { path: '', redirectTo: 'slothead', pathMatch: 'full' }
     ]
   },
   { path: '**', component: PageNotFoundComponent }

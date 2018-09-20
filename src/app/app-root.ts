@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   <router-outlet></router-outlet>
 </div>`
 })
-export class WeatherAppComponent {
-  title = 'Weatherchart app';
+export class SlotheadAppComponent {
+  title = 'Slothead app';
 }
