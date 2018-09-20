@@ -4,7 +4,7 @@
   </mat-toolbar>
   <div class="slotreel">
     <div class="swiper-container hours">
-      <swiper [config]="config" id="1" (indexChange)="onIndexChangeReel1($event)" (swiperTransitionEnd)="onTransEnd($event)">
+      <swiper [config]="config" id="1" (indexChange)="onIndexChangeReel1($event)" (swiperTransitionEnd)="onTransEnd()">
         <div class="swiper-slide"><img src="./assets/3xBAR.png"></div>
         <div class="swiper-slide"></div>
         <div class="swiper-slide"><img src="./assets/BAR.png"></div>
@@ -19,7 +19,7 @@
       </swiper>
     </div>
     <div class="swiper-container minutes">
-      <swiper [config]="config" id="2" (indexChange)="onIndexChangeReel2($event)" (swiperTransitionEnd)="onTransEnd($event)">
+      <swiper [config]="config" (indexChange)="onIndexChangeReel2($event)" (swiperTransitionEnd)="onTransEnd()">
         <div class="swiper-slide"><img src="./assets/3xBAR.png"></div>
         <div class="swiper-slide"></div>
         <div class="swiper-slide"><img src="./assets/BAR.png"></div>
@@ -33,7 +33,7 @@
       </swiper>
     </div>
     <div class="swiper-container seconds">
-      <swiper [config]="config" id="3" (indexChange)="onIndexChangeReel3($event)" (swiperTransitionEnd)="onTransEnd($event)">
+      <swiper [config]="config" (indexChange)="onIndexChangeReel3($event)" (swiperTransitionEnd)="onTransEnd()">
         <div class="swiper-slide"><img src="./assets/3xBAR.png"></div>
         <div class="swiper-slide"></div>
         <div class="swiper-slide"><img src="./assets/BAR.png"></div>
@@ -76,8 +76,7 @@
     <div [style.background-color]="backgroundOfCombo2" class="combo2"><img src="./assets/BAR.png"></div>
     <div [style.background-color]="backgroundOfCombo3" class="combo3">
       <img src="./assets/2xBAR.png"></div>
-    <div style="background-image: url('src/assets/7.png');" [style.background-color]="backgroundOfCombo4" class="combo4"><img
-        src="./assets/BAR.png"></div>
+    <div [style.background-color]="backgroundOfCombo4" class="combo4"><img src="./assets/BAR.png"></div>
     <div [style.background-color]="backgroundOfCombo5" class="combo5"><img src="./assets/Cherry.png"></div>
     <div [style.background-color]="backgroundOfCombo6" class="combo6"><img src="./assets/7.png"></div>
     <div [style.background-color]="backgroundOfCombo7" class="combo7"><img src="./assets/Cherry.png"></div>
