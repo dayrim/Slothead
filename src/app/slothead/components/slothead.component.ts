@@ -26,7 +26,7 @@ export class SlotheadComponent implements OnInit {
   private reel1Index: number;
   private reel2Index: number;
   private reel3Index: number;
-  private scoreFormConrol = new FormControl('', [
+  public scoreFormConrol = new FormControl('', [
     Validators.max(5000),
     Validators.min(0),
     Validators.required
